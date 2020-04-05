@@ -2,11 +2,18 @@
 
 namespace VisitorPattern
 {
-    public class SpeakerOutput : ICommandVisitor<Rubi>
+    public class SpeakerOutput : ICommandVisitor<string>
     {
-        public void Visit(Rubi command)
+        public TU Visit<TU>(Rubi command)
         {
             Console.WriteLine($"[Speaker] {command.rubi}");
+            return default;
+        }
+
+        public TU Visit<TU>(ConsoleString command)
+        {
+            Console.WriteLine($"[Speaker] {command.text}");
+            return default;
         }
     }
 }

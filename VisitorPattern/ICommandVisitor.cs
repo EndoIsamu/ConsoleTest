@@ -3,9 +3,9 @@
     /// <summary>
     /// ICommandがデータなのに対し、こちらは処理を記述するクラス
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    public interface ICommandVisitor<in T>
+    public interface ICommandVisitor<T>
     {
-        void Visit(T command);
+        TU Visit<TU>(Rubi command);
+        TU Visit<TU>(ConsoleString command);
     }
 }

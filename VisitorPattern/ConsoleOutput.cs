@@ -2,11 +2,18 @@
 
 namespace VisitorPattern
 {
-    public class ConsoleOutput : ICommandVisitor<ConsoleString>
+    public class ConsoleOutput : ICommandVisitor<int>
     {
-        public void Visit(ConsoleString command)
+        public TU Visit<TU>(Rubi command)
+        {
+            Console.WriteLine($"[Console] {command.rubi}");
+            return default;
+        }
+
+        public TU Visit<TU>(ConsoleString command)
         {
             Console.WriteLine($"[Console] {command.text}");
+            return default;
         }
     }
 }

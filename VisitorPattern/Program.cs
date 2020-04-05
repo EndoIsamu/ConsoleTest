@@ -8,9 +8,11 @@
             var so = new SpeakerOutput();
 
             var displayText = new ConsoleString("J1の試合が凄かったですよ");
-            displayText.Accept(co);
-            
             var rubi = new Rubi("じぇーわんの試合が凄かったですよ");
+
+            displayText.Accept(co);
+            displayText.Accept(so);
+            rubi.Accept(co);
             rubi.Accept(so);
         }
     }

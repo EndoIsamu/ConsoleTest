@@ -1,6 +1,6 @@
 ﻿namespace VisitorPattern
 {
-    public class ConsoleString : ICommand<ConsoleString>
+    public class ConsoleString : ICommand
     {
         public readonly string text;
         
@@ -9,9 +9,9 @@
             this.text = text;
         }
 
-        public void Accept(ICommandVisitor<ConsoleString> commandVisitor)
+        public T Accept<T>(ICommandVisitor<T> commandVisitor)
         {
-            commandVisitor.Visit(this);
+            return commandVisitor.Visit<T>(this);
         }
     }
 }

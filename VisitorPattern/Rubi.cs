@@ -1,6 +1,6 @@
 ﻿namespace VisitorPattern
 {
-    public class Rubi : ICommand<Rubi>
+    public class Rubi
     {
         public readonly string rubi;
         
@@ -9,9 +9,9 @@
             this.rubi = rubi;
         }
 
-        public void Accept(ICommandVisitor<Rubi> commandVisitor)
+        public T Accept<T>(ICommandVisitor<T> commandVisitor)
         {
-            commandVisitor.Visit(this);
+            return commandVisitor.Visit<T>(this);
         }
     }
 }

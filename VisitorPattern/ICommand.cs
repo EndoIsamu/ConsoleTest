@@ -1,7 +1,7 @@
 ﻿namespace VisitorPattern
 {
-    public interface ICommand<out T>
+    public interface ICommand
     {
-        void Accept(ICommandVisitor<T> commandVisitor);
+        T Accept<T>(ICommandVisitor<T> commandVisitor);
     }
 }
